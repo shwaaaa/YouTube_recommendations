@@ -9,8 +9,10 @@ import SwiftUI
 
 struct ListDetailView: View {
     @State private var isShown = false
+    @State private var isFullScreen = false
     @State var heartNumber = 18
     @State var heartButton = false
+    @ObservedObject var youtube: Content
     
     var body: some View {
         NavigationView {
@@ -19,7 +21,7 @@ struct ListDetailView: View {
                     Image("Icon")
                         .resizable()
                         .frame(width:60, height:60)
-                    Text("이거 개웃김ㅋㅋㅋㅋ")
+                    Text(youtube.title)
                         .font(.headline)
                     Spacer()
                 }.padding(.leading)
@@ -28,7 +30,7 @@ struct ListDetailView: View {
                     .frame(width:350,height:0.9)
                     .foregroundColor(.subColor)
                 
-                Text("예스! 아이 캔 🥹")
+                Text(youtube.description)
                     .frame(width: 350, height: 300)
                 
                 HStack {
@@ -69,12 +71,20 @@ struct ListDetailView: View {
                             .foregroundColor(.secondary)
                     }.padding(.leading,30)
                     
-                    Text("영상 보러가기")
-                        .frame(width: 150,height: 50)
-                        .background(Color .mainColor)
-                        .foregroundColor(.white)
-                        .cornerRadius(15)
-                        .padding(.leading,30)
+                    Button {
+                        self.isFullScreen.toggle()
+                    } label: {
+                        Text("영상 보러가기")
+                            .frame(width: 150,height: 50)
+                            .background(Color .mainColor)
+                            .foregroundColor(.white)
+                            .cornerRadius(15)
+                            .padding(.leading,30)
+                    }.sheet(isPresented: $isFullScreen) {
+                        MyWebView(urlToLoad: youtube.url)
+                    }
+
+                    
                 }
                 
                 Rectangle()
@@ -105,6 +115,6 @@ struct ListDetailView: View {
 
 struct ListDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ListDetailView()
+        ListDetailView(youtube: Content(title: "이거 개웃김ㅋㅋㅋㅋ", url: "https://www.youtube.com/watch?v=aLSDhmTQ160", description: "예스 아이 캔"))
     }
 }

@@ -9,15 +9,18 @@ import SwiftUI
 
 struct YoutubeListView: View {
     @State private var isShown = false
+    @EnvironmentObject var store: ListStore
     
     var body: some View {
         NavigationView {
             List {
-                NavigationLink {
-                    ListDetailView()
-                } label: {
-                    RowDetailView()
-                }
+                ForEach(store.list) { youtube in
+                    NavigationLink {
+                        ListDetailView(youtube: youtube)
+                    } label: {
+                        RowDetailView(youtube: youtube)
+                    }
+                }.onDelete(perform: deleteItem)
             }.listStyle(.plain)
             
                 .toolbar{
@@ -41,10 +44,14 @@ struct YoutubeListView: View {
                 }
         }
     }
+    func deleteItem(indexSet: IndexSet) {
+        store.list.remove(atOffsets: indexSet)
+    }
 }
 
 struct YoutubeListView_Previews: PreviewProvider {
     static var previews: some View {
         YoutubeListView()
+            .environmentObject(ListStore())
     }
 }

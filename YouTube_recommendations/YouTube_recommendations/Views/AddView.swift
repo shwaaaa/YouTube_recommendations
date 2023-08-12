@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct AddView: View {
-    @State private var title = ""
-    @State private var link = ""
-    @State private var description = ""
+    @State var title = ""
+    @State var link = ""
+    @State var description = ""
     
     var body: some View {
         VStack {
@@ -47,14 +47,17 @@ struct AddView: View {
                     .frame(width: 350, height: 330))
                 .padding(.top,30)
             
-            Text("올리기")
-                .frame(width: 280,height: 60)
-                .background(Color .mainColor)
-                .foregroundColor(.white)
-                .bold()
-                .cornerRadius(15)
-                .padding(.top,30)
-           
+            Button {
+                
+            } label: {
+                Text("올리기")
+                    .frame(width: 280,height: 60)
+                    .background(Color .mainColor)
+                    .foregroundColor(.white)
+                    .bold()
+                    .cornerRadius(15)
+                    .padding(.top,30)
+            }
             Spacer()
         }
     }
