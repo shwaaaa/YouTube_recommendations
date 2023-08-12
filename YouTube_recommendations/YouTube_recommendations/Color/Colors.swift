@@ -11,4 +11,5 @@ extension Color {
     static let mainColor = Color("mainColor")
     static let subColor = Color("subColor")
     static let whitePink = Color("whitePink")
+    static let listColor = Color("listColor")
 }

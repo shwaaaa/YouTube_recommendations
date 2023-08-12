@@ -11,6 +11,8 @@ struct AddView: View {
     @State var title = ""
     @State var link = ""
     @State var description = ""
+    @EnvironmentObject var ListStore: ListStore
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack {
@@ -48,7 +50,7 @@ struct AddView: View {
                 .padding(.top,30)
             
             Button {
-                
+                uploadButtonPressed()
             } label: {
                 Text("올리기")
                     .frame(width: 280,height: 60)
@@ -61,10 +63,16 @@ struct AddView: View {
             Spacer()
         }
     }
+    
+    func uploadButtonPressed() {
+        ListStore.addItem(title: title, url: link, description: description)
+        presentationMode.wrappedValue.dismiss()
+    }
 }
 
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
         AddView()
+            .environmentObject(ListStore())
     }
 }

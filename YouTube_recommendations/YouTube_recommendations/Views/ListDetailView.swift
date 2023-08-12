@@ -10,9 +10,12 @@ import SwiftUI
 struct ListDetailView: View {
     @State private var isShown = false
     @State private var isFullScreen = false
-    @State var heartNumber = 18
+    @State var heartNumber = 0
     @State var heartButton = false
+//    @State var starButton = false
+    @State private var isAnimation = false
     @ObservedObject var youtube: Content
+    let timing: Double = 10.0
     
     var body: some View {
         NavigationView {
@@ -37,38 +40,37 @@ struct ListDetailView: View {
                     VStack {
                         Button {
                             self.heartButton.toggle()
+                            self.isAnimation.toggle()
                             if heartButton == true {
                                 heartNumber += 1
                             } else if heartButton == false {
                                 heartNumber -= 1
                             }
                         } label: {
-                            if heartButton == true {
-                                Image(systemName: "heart.fill")
-                                    .resizable()
-                                    .frame(width: 30,height: 30)
-                                    .foregroundColor(.subColor)
-                            } else if heartButton == false {
-                                Image(systemName: "heart")
-                                    .resizable()
-                                    .frame(width: 30,height: 30)
-                                    .foregroundColor(.subColor)
-                            }
+                            Image(systemName: isAnimation ? "heart.fill" : "heart")
+                                .resizable()
+                                .foregroundColor(isAnimation ? .mainColor : .subColor)
+                                .frame(width: 30,height: 30)
                         }
                         Text("\(heartNumber)")
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
                     
-                    VStack {
-                        Image(systemName: "star")
-                            .resizable()
-                            .frame(width: 35,height: 35)
-                            .foregroundColor(.subColor)
-                        
-                        Text("star")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                   
+                        Button {
+                            self.youtube.isBookmark.toggle()
+                        } label: {
+                            VStack {
+                            Image(systemName: youtube.isBookmark ?  "star.fill" : "star")
+                                    .resizable()
+                                    .frame(width: 35,height: 35)
+                                    .foregroundColor(youtube.isBookmark ? .mainColor : .subColor)
+                                
+                                Text("star")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                        }
                     }.padding(.leading,30)
                     
                     Button {
@@ -115,6 +117,6 @@ struct ListDetailView: View {
 
 struct ListDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ListDetailView(youtube: Content(title: "이거 개웃김ㅋㅋㅋㅋ", url: "https://www.youtube.com/watch?v=aLSDhmTQ160", description: "예스 아이 캔"))
+        ListDetailView(youtube: Content(title: "이거 개웃김ㅋㅋㅋㅋ", url: "https://www.youtube.com/watch?v=aLSDhmTQ160", description: "예스 아이 캔", isBookmark: false))
     }
 }

@@ -11,9 +11,7 @@ import SwiftUI
 struct YouTube_recommendationsApp: App {
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                YoutubeListView()
-            }
+            YoutubeListView().environmentObject(ListStore())
         }
     }
 }
