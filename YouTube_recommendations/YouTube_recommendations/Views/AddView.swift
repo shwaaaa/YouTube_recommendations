@@ -13,6 +13,7 @@ struct AddView: View {
     @State var description = ""
     @EnvironmentObject var ListStore: ListStore
     @Environment(\.presentationMode) var presentationMode
+    @State private var checkURL = false
     
     var body: some View {
         VStack {
@@ -59,14 +60,26 @@ struct AddView: View {
                     .bold()
                     .cornerRadius(15)
                     .padding(.top,30)
+            }.alert("", isPresented: $checkURL) {
+                Button("Ok") {
+                    link = ""
+                }
+            } message: {
+                Text("형식에 맞게 작성해주세요.")
             }
+
             Spacer()
         }
     }
     
     func uploadButtonPressed() {
-        ListStore.addItem(title: title, url: link, description: description)
-        presentationMode.wrappedValue.dismiss()
+        
+        if link.count < 23 {
+            checkURL = true
+        } else if link.count > 22{
+            ListStore.addItem(title: title, url: link, description: description)
+            presentationMode.wrappedValue.dismiss()
+        }
     }
 }
 

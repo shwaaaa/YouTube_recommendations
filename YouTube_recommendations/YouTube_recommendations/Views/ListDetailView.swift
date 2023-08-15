@@ -12,7 +12,6 @@ struct ListDetailView: View {
     @State private var isFullScreen = false
     @State var heartNumber = 0
     @State var heartButton = false
-//    @State var starButton = false
     @State private var isAnimation = false
     @ObservedObject var youtube: Content
     let timing: Double = 10.0
