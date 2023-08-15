@@ -28,6 +28,6 @@ struct RowDetailView: View {
 
 struct RowDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        RowDetailView(youtube: Content(title: "hihi", url: "https://youtu.be/aLSDhmTQ160", description: "크ㅡ크", isBookmark: false))
+        RowDetailView(youtube: Content(title: "hihi", url: "https://youtu.be/aLSDhmTQ160", description: "크ㅡ크", isBookmark: false, isHeart: false, heartNumber: 17))
     }
 }

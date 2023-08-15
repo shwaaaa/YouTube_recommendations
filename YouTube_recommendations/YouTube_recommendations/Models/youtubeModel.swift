@@ -13,14 +13,18 @@ class Content: ObservableObject, Identifiable {
     @Published var url: String
     @Published var description: String
     @Published var isBookmark: Bool
+    @Published var isHeart: Bool
+    @Published var heartNumber: Int
     
     let id: UUID
     
-    init(title: String, url: String, description: String, isBookmark: Bool) {
+    init(title: String, url: String, description: String, isBookmark: Bool, isHeart: Bool, heartNumber: Int) {
         self.title = title
         self.url = url
         self.description = description
         self.isBookmark = isBookmark
+        self.isHeart = isHeart
+        self.heartNumber = heartNumber
         id = UUID()
     }
 }

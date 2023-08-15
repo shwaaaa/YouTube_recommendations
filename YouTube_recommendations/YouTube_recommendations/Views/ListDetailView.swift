@@ -10,9 +10,6 @@ import SwiftUI
 struct ListDetailView: View {
     @State private var isShown = false
     @State private var isFullScreen = false
-    @State var heartNumber = 0
-    @State var heartButton = false
-    @State private var isAnimation = false
     @ObservedObject var youtube: Content
     let timing: Double = 10.0
     
@@ -38,20 +35,19 @@ struct ListDetailView: View {
                 HStack {
                     VStack {
                         Button {
-                            self.heartButton.toggle()
-                            self.isAnimation.toggle()
-                            if heartButton == true {
-                                heartNumber += 1
-                            } else if heartButton == false {
-                                heartNumber -= 1
+                            self.youtube.isHeart.toggle()
+                            if youtube.isHeart == true {
+                                self.youtube.heartNumber += 1
+                            } else if youtube.isHeart == false {
+                                self.youtube.heartNumber -= 1
                             }
                         } label: {
-                            Image(systemName: isAnimation ? "heart.fill" : "heart")
+                            Image(systemName: youtube.isHeart ? "heart.fill" : "heart")
                                 .resizable()
-                                .foregroundColor(isAnimation ? .mainColor : .subColor)
+                                .foregroundColor(youtube.isHeart ? .mainColor : .subColor)
                                 .frame(width: 30,height: 30)
                         }
-                        Text("\(heartNumber)")
+                        Text("\(youtube.heartNumber)")
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -116,6 +112,6 @@ struct ListDetailView: View {
 
 struct ListDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ListDetailView(youtube: Content(title: "이거 개웃김ㅋㅋㅋㅋ", url: "https://www.youtube.com/watch?v=aLSDhmTQ160", description: "예스 아이 캔", isBookmark: false))
+        ListDetailView(youtube: Content(title: "이거 개웃김ㅋㅋㅋㅋ", url: "https://www.youtube.com/watch?v=aLSDhmTQ160", description: "예스 아이 캔", isBookmark: false, isHeart: false, heartNumber: 13))
     }
 }

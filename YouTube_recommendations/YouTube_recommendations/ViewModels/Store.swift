@@ -13,9 +13,9 @@ class ListStore: ObservableObject {
     
     init() {
         list = [
-            Content(title: "이거 개웃김ㅋㅋㅋㅋ", url: "https://youtu.be/aLSDhmTQ160", description: "예스 아이 캔", isBookmark: true),
-            Content(title: "😢", url: "https://youtu.be/i9yQ-lmMtJg", description: "개슬프답😭", isBookmark: true),
-            Content(title: "광소마홍보영상", url: "https://youtu.be/FBEBPnWafTk", description: "우와 🅶🆂🅼", isBookmark: false)
+            Content(title: "이거 개웃김ㅋㅋㅋㅋ", url: "https://youtu.be/aLSDhmTQ160", description: "예스 아이 캔", isBookmark: true, isHeart: false, heartNumber: 17),
+            Content(title: "😢", url: "https://youtu.be/i9yQ-lmMtJg", description: "개슬프답😭", isBookmark: true, isHeart: false, heartNumber: 4),
+            Content(title: "광소마홍보영상", url: "https://youtu.be/FBEBPnWafTk", description: "우와 🅶🆂🅼", isBookmark: false, isHeart: false, heartNumber: 123)
         ]
     }
     
@@ -24,7 +24,7 @@ class ListStore: ObservableObject {
     }
     
     func addItem(title: String, url: String, description: String) {
-        let newYoutube = Content(title: title, url: url, description: description, isBookmark: false)
+        let newYoutube = Content(title: title, url: url, description: description, isBookmark: false, isHeart: false, heartNumber: 0)
         list.append(newYoutube)
     }
 }
