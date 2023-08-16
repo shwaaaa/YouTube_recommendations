@@ -14,8 +14,8 @@ class ListStore: ObservableObject {
     init() {
         list = [
             Content(title: "이거 개웃김ㅋㅋㅋㅋ", url: "https://youtu.be/aLSDhmTQ160", description: "예스 아이 캔", isBookmark: true, isHeart: false, heartNumber: 17),
-            Content(title: "😢", url: "https://youtu.be/i9yQ-lmMtJg", description: "개슬프답😭", isBookmark: true, isHeart: false, heartNumber: 4),
-            Content(title: "광소마홍보영상", url: "https://youtu.be/FBEBPnWafTk", description: "우와 🅶🆂🅼", isBookmark: false, isHeart: false, heartNumber: 123)
+            Content(title: "🐼", url: "https://youtu.be/QE_MBUXGp3c", description: "나 푸바온데 죽순 사 먹게 용돈 좀 주라", isBookmark: true, isHeart: false, heartNumber: 4),
+            Content(title: "🅶🆂🅼", url: "https://youtu.be/FBEBPnWafTk", description: "우와", isBookmark: false, isHeart: false, heartNumber: 123)
         ]
     }
     
