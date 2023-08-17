@@ -12,7 +12,7 @@ struct AddView: View {
     @State var link = ""
     @State var description = ""
     @EnvironmentObject var ListStore: ListStore
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     @State private var checkURL = false
     
     var body: some View {
@@ -24,31 +24,39 @@ struct AddView: View {
                 .padding(.top,20)
             
             TextField("제목을 입력해주세요", text: $title)
-                .frame(width: 320, height: 60)
+                .frame(height: 60)
+                .padding(4)
                 .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke()
-                    .foregroundColor(.mainColor)
-                    .frame(width: 350, height: 60))
-                .padding(.top,30)
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke()
+                        .foregroundColor(.mainColor)
+                        .frame(width: 350, height: 60)
+                    )
+                    .padding(.top,30)
+                    .padding(.horizontal,30)
             
             TextField("URL을 입력해주세요", text: $link)
-                .frame(width: 320, height: 60)
+                .frame(height: 60)
+                .padding(4)
                 .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke()
-                    .foregroundColor(.mainColor)
-                    .frame(width: 350, height: 60))
-                .padding(.top,30)
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke()
+                        .foregroundColor(.mainColor)
+                        .frame(width: 350, height: 60)
+                    )
+                    .padding(.top,30)
+                    .padding(.horizontal,30)
             
             TextEditor(text: $description)
-                .frame(width: 320, height: 330)
+                .frame(height: 330)
                 .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke()
-                    .foregroundColor(.mainColor)
-                    .frame(width: 350, height: 330))
-                .padding(.top,30)
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke()
+                        .foregroundColor(.mainColor)
+                        .frame(width: 350, height: 330)
+                    )
+                    .padding(.top,30)
+                    .padding(.horizontal,30)
             
             Button {
                 uploadButtonPressed()
@@ -78,7 +86,7 @@ struct AddView: View {
             checkURL = true
         } else if link.count > 22{
             ListStore.addItem(title: title, url: link, description: description)
-            presentationMode.wrappedValue.dismiss()
+            dismiss()
         }
     }
 }

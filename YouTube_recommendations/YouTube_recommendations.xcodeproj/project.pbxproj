@@ -16,8 +16,8 @@
 		AFBC20EF2A8511DE00723AD5 /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC20EE2A8511DE00723AD5 /* ListDetailView.swift */; };
 		AFBC20F12A85150F00723AD5 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC20F02A85150F00723AD5 /* AddView.swift */; };
 		AFBC20F32A8519F900723AD5 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC20F22A8519F900723AD5 /* WebView.swift */; };
-		AFBC20F72A873A8A00723AD5 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC20F62A873A8A00723AD5 /* Store.swift */; };
-		AFBC20F92A873BAE00723AD5 /* youtubeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC20F82A873BAE00723AD5 /* youtubeModel.swift */; };
+		AFBC20F72A873A8A00723AD5 /* ListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC20F62A873A8A00723AD5 /* ListStore.swift */; };
+		AFBC20F92A873BAE00723AD5 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC20F82A873BAE00723AD5 /* Content.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +31,8 @@
 		AFBC20EE2A8511DE00723AD5 /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
 		AFBC20F02A85150F00723AD5 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		AFBC20F22A8519F900723AD5 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		AFBC20F62A873A8A00723AD5 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		AFBC20F82A873BAE00723AD5 /* youtubeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = youtubeModel.swift; sourceTree = "<group>"; };
+		AFBC20F62A873A8A00723AD5 /* ListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStore.swift; sourceTree = "<group>"; };
+		AFBC20F82A873BAE00723AD5 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +99,7 @@
 		AFBC21222A876DDF00723AD5 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				AFBC20F62A873A8A00723AD5 /* Store.swift */,
+				AFBC20F62A873A8A00723AD5 /* ListStore.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -107,7 +107,7 @@
 		AFBC21232A876E1800723AD5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AFBC20F82A873BAE00723AD5 /* youtubeModel.swift */,
+				AFBC20F82A873BAE00723AD5 /* Content.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,9 +193,9 @@
 				AFBC20ED2A850FB600723AD5 /* RowDetailView.swift in Sources */,
 				AFBC20DF2A850A8500723AD5 /* youtubeListView.swift in Sources */,
 				AFBC20F12A85150F00723AD5 /* AddView.swift in Sources */,
-				AFBC20F72A873A8A00723AD5 /* Store.swift in Sources */,
+				AFBC20F72A873A8A00723AD5 /* ListStore.swift in Sources */,
 				AFBC20EF2A8511DE00723AD5 /* ListDetailView.swift in Sources */,
-				AFBC20F92A873BAE00723AD5 /* youtubeModel.swift in Sources */,
+				AFBC20F92A873BAE00723AD5 /* Content.swift in Sources */,
 				AFBC20EB2A850D1200723AD5 /* Colors.swift in Sources */,
 				AFBC20DD2A850A8500723AD5 /* YouTube_recommendationsApp.swift in Sources */,
 				AFBC20F32A8519F900723AD5 /* WebView.swift in Sources */,
